@@ -15,7 +15,7 @@ const Spendings = (props: Props) => {
         <h2 className="center-text">Income</h2>
         {income.map((e) => {
           return (
-            <div key={e * Math.random()} id="earned" className="info-wrapper">
+            <div key={e * Math.random()} id="earned" className="spending-details">
               <p>{Math.random() < 0.5 ? "Payment" : "lottery"}</p>
               <p>{e}</p>
             </div>
@@ -27,7 +27,7 @@ const Spendings = (props: Props) => {
         <h2 className="center-text">Spendings</h2>
         {spending.map((e) => {
           return (
-            <div key={e * Math.random()} id="spended" className="info-wrapper">
+            <div key={e * Math.random()} id="spended" className="spending-details">
               <p>{Math.random() < 0.5 ? "Bills" : "Food"}</p>
               <p>{e}</p>
             </div>
