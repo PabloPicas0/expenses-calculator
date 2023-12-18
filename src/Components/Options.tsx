@@ -1,9 +1,10 @@
 const Options = () => {
   return (
-    <div>
+    <div className="options">
       <div>income/expense</div>
       <div>ammount</div>
       <div>add</div>
+      <div>save</div>
     </div>
   );
 };
