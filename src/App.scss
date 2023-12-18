@@ -4,7 +4,7 @@
 
 #root {
   display: flex;
-  max-width: 1024px;
+  max-width: 860px;
   margin: 0 auto;
   flex-direction: column;
   gap: 40px;
@@ -23,5 +23,14 @@
 .spendings-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  place-items: center;
+  gap: 50px
+}
+
+.spending-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center-text {
+  text-align: center;
 }
