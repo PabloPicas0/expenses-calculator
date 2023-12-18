@@ -2,20 +2,16 @@ import "./App.scss";
 
 import Options from "./Components/Options";
 import Spendings from "./Components/Spendings";
+import Title from "./Components/Title";
 
 function App() {
-  const currentYear = new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+  const data = [...new Array(10)].map((e, idx) => idx);
 
   return (
     <>
-      <h1>Budget available in {currentYear}</h1>
+      <Title />
       <Options />
-
-      <Spendings>
-        {[...new Array(10)].map((e, idx) => {
-          return <div>{idx}</div>;
-        })}
-      </Spendings>
+      <Spendings data={data} />
     </>
   );
 }
