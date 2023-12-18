@@ -11,9 +11,29 @@ const Spendings = (props: Props) => {
 
   return (
     <div className="spendings-wrapper">
-      <div id="income">{income}</div>
+      <div id="income">
+        <h2 className="center-text">Income</h2>
+        {income.map((e) => {
+          return (
+            <div key={e * Math.random()} id="earned" className="info-wrapper">
+              <p>{Math.random() < 0.5 ? "Payment" : "lottery"}</p>
+              <p>{e}</p>
+            </div>
+          );
+        })}
+      </div>
 
-      <div id="spendings">{spending}</div>
+      <div id="spendings">
+        <h2 className="center-text">Spendings</h2>
+        {spending.map((e) => {
+          return (
+            <div key={e * Math.random()} id="spended" className="info-wrapper">
+              <p>{Math.random() < 0.5 ? "Bills" : "Food"}</p>
+              <p>{e}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
