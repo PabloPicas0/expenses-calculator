@@ -1,11 +1,16 @@
 const Options = () => {
   return (
     <div className="options">
-      <div>income/expense</div>
-      <div>description</div>
-      <div>ammount</div>
-      <div>add</div>
-      <div>save</div>
+      <select id="money">
+        <option value="income">&#43;</option>
+        <option value="expense">&#8722;</option>
+      </select>
+
+      <input type="text" placeholder="description" />
+      <input type="number" placeholder="ammount" />
+      
+      <button>add</button>
+      <button>save</button>
     </div>
   );
 };
