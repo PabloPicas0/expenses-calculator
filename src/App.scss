@@ -4,8 +4,6 @@
 
 #root {
   display: flex;
-  max-width: 860px;
-  margin: 0 auto;
   flex-direction: column;
   gap: 40px;
 }
@@ -14,23 +12,58 @@
   text-align: center;
 }
 
+.header-income-wrapper {
+  margin-bottom: 20px;
+  background-color: rgba(0, 128, 0, 0.8);
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.header-expenses-wrapper {
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
 .options {
   display: flex;
   justify-content: center;
   gap: 40px;
+  background-color: #393939;
+  padding: 25px;
 }
 
 .spendings-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 50px
+  gap: 50px;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .spending-details {
   display: flex;
   justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid whitesmoke;
 }
 
 .center-text {
   text-align: center;
+}
+
+.padding-bottom {
+  padding-bottom: 20px;
+}
+
+.color-green {
+  color: green;
+}
+
+.color-red {
+  color: red;
 }
