@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-const PopoverHistory = (props) => {
+import { yearsProps } from "./Popover";
+
+type PopoverHistoryProps = {
+  yearKey: string;
+  years: yearsProps;
+};
+
+const PopoverHistory = (props: PopoverHistoryProps) => {
   const { yearKey, years } = props;
 
   const [IsChildrenVisible, setIsChildrenVisible] = useState(false);
