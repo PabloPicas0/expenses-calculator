@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import PopoverHistory from "./PopoverHistory";
 
 export type yearsProps = {
-  [key: number | string]: number[];
+  [key: number | string]: string[];
 };
 
 const year = new Date();
@@ -13,7 +13,9 @@ for (let i = 1; i < 11; i++) {
   const months = [];
 
   for (let j = 0; j < 12; j++) {
-    months.push(j);
+    year.setMonth(j)
+    const month = year.toLocaleDateString("en-US", { month: "short" });
+    months.push(month);
   }
 
   years[fullYear] = months;

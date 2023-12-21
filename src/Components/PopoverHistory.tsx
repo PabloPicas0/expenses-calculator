@@ -17,7 +17,7 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
       <p onClick={() => setIsChildrenVisible((prev) => !prev)}>{yearKey}</p>
       <div style={{ display: IsChildrenVisible ? "block" : "none" }}>
         {years[yearKey].map((month) => {
-          return <div key={(month + 1) * Math.random()}>{month} </div>;
+          return <div key={month.charCodeAt(0) * Math.random()}>{month}</div>;  
         })}
       </div>
     </div>
