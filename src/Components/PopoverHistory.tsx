@@ -14,7 +14,7 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
   const [IsChildrenVisible, setIsChildrenVisible] = useState(false);
 
   return (
-    <div key={yearKey}>
+    <div>
       <button
         type="button"
         onClick={() => setIsChildrenVisible((prev) => !prev)}
@@ -23,16 +23,23 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
           justifyContent: "space-between",
           alignItems: "center",
           cursor: "pointer",
-          padding: 0,
+          padding: "0 0 0 10px",
           width: "100%",
           borderRadius: 0,
         }}>
         <span style={{ pointerEvents: "none" }}>{yearKey}</span>
         <Arrow />
       </button>
+
       <div style={{ display: IsChildrenVisible ? "block" : "none" }}>
         {years[yearKey].map((month) => {
-          return <div key={month.charCodeAt(0) * Math.random()}>{month}</div>;
+          return (
+            <div
+              key={month.charCodeAt(0) * Math.random()}
+              style={{ backgroundColor: "black", padding: "0 0 0 15px" }}>
+              {month}
+            </div>
+          );
         })}
       </div>
     </div>
