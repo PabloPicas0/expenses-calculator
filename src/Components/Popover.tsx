@@ -61,11 +61,11 @@ const Popover = () => {
         ref={contentRef}
         style={{
           position: "fixed",
-          backgroundColor: "black",
           display: isParentVisible ? "block" : "none",
           height: "312px",
           borderRadius: "5px",
-          overflowY: "scroll",
+          overflowY: "auto",
+          scrollbarGutter: "stable",
         }}>
         {yearsKeys.map((yearKey) => {
           return <PopoverHistory key={yearKey} yearKey={yearKey} years={years} />;
