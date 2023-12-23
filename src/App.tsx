@@ -44,7 +44,7 @@ function App() {
   console.log(data);
   return (
     <>
-      <Title />
+      <Title year={year} month={month} data={data} />
       <Options year={year} month={month} setData={setData} />
       <Spendings year={year} month={month} data={data} />
     </>
