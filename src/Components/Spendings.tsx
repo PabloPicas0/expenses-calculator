@@ -1,35 +1,28 @@
-type PropsTypes = {
-  data: number[];
-};
+import { expensesType } from "../App";
 
-type ReduceAccumulatorTypes = {
-  income: number[];
-  spending: number[];
+type PropsTypes = {
+  year: string;
+  month: string;
+  data: expensesType;
 };
 
 const Spendings = (props: PropsTypes) => {
-  const { data } = props;
+  const { data, month, year } = props;
 
-  const sortedData = data.reduce(
-    (acc, e, idx) => {
-      idx % 2 === 0 ? acc.income.push(idx) : acc.spending.push(idx);
-      return acc;
-    },
-    {
-      income: [],
-      spending: [],
-    } as ReduceAccumulatorTypes
-  );
+  const currentExpenses = data[year].find((e) => e.month === month);
+  console.log(currentExpenses);
 
   return (
     <div className="spendings-wrapper">
       <div id="income">
         <h2 className="center-text border-bottom padding-bottom color-green">Income</h2>
-        {sortedData.income.map((e) => {
+        {currentExpenses?.income.map((e) => {
+          const { descritpiton, income } = e;
+
           return (
-            <div key={e * Math.random()} id="earned" className="spending-details border-bottom">
-              <p>{Math.random() < 0.5 ? "Payment" : "lottery"}</p>
-              <p className="color-green">{e}</p>
+            <div key={income * Math.random()} id="earned" className="spending-details border-bottom">
+              <p>{descritpiton}</p>
+              <p className="color-green">+ ${income}</p>
             </div>
           );
         })}
@@ -37,11 +30,13 @@ const Spendings = (props: PropsTypes) => {
 
       <div id="spendings">
         <h2 className="center-text border-bottom padding-bottom color-red">Spendings</h2>
-        {sortedData.spending.map((e) => {
+        {currentExpenses?.spendings.map((e) => {
+          const { descritpiton, income } = e;
+
           return (
-            <div key={e * Math.random()} id="spended" className="spending-details border-bottom">
-              <p>{Math.random() < 0.5 ? "Bills" : "Food"}</p>
-              <p className="color-red">{e}</p>
+            <div key={income * Math.random()} id="spended" className="spending-details border-bottom">
+              <p>{descritpiton}</p>
+              <p className="color-red">- ${income}</p>
             </div>
           );
         })}
