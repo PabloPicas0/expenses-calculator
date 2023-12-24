@@ -23,8 +23,6 @@ for (let i = 1; i < 11; i++) {
   year.setFullYear(fullYear + 1);
 }
 
-console.log(year, years);
-
 const Popover = () => {
   const [isParentVisible, setIsParentVisible] = useState(false);
 
@@ -43,7 +41,6 @@ const Popover = () => {
     contentRef.current.style.top = `${bottom + 5}px`;
     contentRef.current.style.left = `${left}px`;
     contentRef.current.style.width = `${width}px`;
-    console.log(boundingClientRect);
   }, [poperRef, contentRef]);
 
   return (
