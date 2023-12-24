@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-import { yearsProps } from "./Popover";
 import Arrow from "./Arrow";
+import { expensesType } from "../App";
 
 type PopoverHistoryProps = {
   yearKey: string;
-  years: yearsProps;
+  data: expensesType;
 };
 
 const PopoverHistory = (props: PopoverHistoryProps) => {
-  const { yearKey, years } = props;
+  const { yearKey, data } = props;
 
   const [IsChildrenVisible, setIsChildrenVisible] = useState(false);
 
@@ -32,12 +32,12 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
       </button>
 
       <div style={{ display: IsChildrenVisible ? "block" : "none" }}>
-        {years[yearKey].map((month) => {
+        {data[yearKey].map((e) => {
           return (
             <div
-              key={month.charCodeAt(0) * Math.random()}
+              key={e.month.charCodeAt(0) * Math.random()}
               style={{ backgroundColor: "black", padding: "0 0 0 15px" }}>
-              {month}
+              {e.month}
             </div>
           );
         })}
