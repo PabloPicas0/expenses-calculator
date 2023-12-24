@@ -45,7 +45,7 @@ function App() {
   return (
     <>
       <Title year={year} month={month} data={data} />
-      <Options year={year} month={month} setData={setData} />
+      <Options year={year} month={month} setData={setData} data={data} />
       <Spendings year={year} month={month} data={data} />
     </>
   );
