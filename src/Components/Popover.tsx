@@ -1,35 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import PopoverHistory from "./PopoverHistory";
+import { expensesType } from "../App";
 import Arrow from "./Arrow";
 
-export type yearsProps = {
-  [key: number | string]: string[];
+type PopoverProps = {
+  data: expensesType;
 };
 
-const year = new Date();
-const years: yearsProps = {};
+const Popover = (props: PopoverProps) => {
+  const { data } = props;
 
-for (let i = 1; i < 11; i++) {
-  const fullYear = year.getFullYear();
-  const months = [];
-
-  for (let j = 0; j < 12; j++) {
-    year.setMonth(j);
-    const month = year.toLocaleDateString("en-US", { month: "short" });
-    months.push(month);
-  }
-
-  years[fullYear] = months;
-  year.setFullYear(fullYear + 1);
-}
-
-const Popover = () => {
   const [isParentVisible, setIsParentVisible] = useState(false);
 
   const poperRef = useRef<HTMLButtonElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const yearsKeys = Object.keys(years);
+  const yearsKeys = Object.keys(data);
 
   useEffect(() => {
     if (!poperRef.current || !contentRef.current) return;
@@ -65,7 +51,7 @@ const Popover = () => {
           scrollbarGutter: "stable",
         }}>
         {yearsKeys.map((yearKey) => {
-          return <PopoverHistory key={yearKey} yearKey={yearKey} years={years} />;
+          return <PopoverHistory key={yearKey} yearKey={yearKey} data={data} />;
         })}
       </div>
     </>
