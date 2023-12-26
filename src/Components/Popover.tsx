@@ -5,10 +5,12 @@ import Arrow from "./Arrow";
 
 type PopoverProps = {
   data: expensesType;
+  setYear: React.Dispatch<React.SetStateAction<string>>;
+  setMonth: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Popover = (props: PopoverProps) => {
-  const { data } = props;
+  const { data, setYear, setMonth } = props;
 
   const [isParentVisible, setIsParentVisible] = useState(false);
 
@@ -51,7 +53,15 @@ const Popover = (props: PopoverProps) => {
           scrollbarGutter: "stable",
         }}>
         {yearsKeys.map((yearKey) => {
-          return <PopoverHistory key={yearKey} yearKey={yearKey} data={data} />;
+          return (
+            <PopoverHistory
+              key={yearKey}
+              yearKey={yearKey}
+              data={data}
+              setYear={setYear}
+              setMonth={setMonth}
+            />
+          );
         })}
       </div>
     </>
