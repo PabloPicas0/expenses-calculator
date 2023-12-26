@@ -26,7 +26,7 @@ const Spendings = (props: PropsTypes) => {
 
               <div style={{ display: "flex", alignItems: "center" }}>
                 <p className="color-green price">+ ${income}</p>
-                <button className="icon-button">
+                <button className="icon-button delete-btn">
                   <Cancel color="#008800" />
                 </button>
               </div>
@@ -46,7 +46,7 @@ const Spendings = (props: PropsTypes) => {
 
               <div style={{ display: "flex", alignItems: "center" }}>
                 <p className="color-red price">- ${income}</p>
-                <button className="icon-button">
+                <button className="icon-button delete-btn">
                   <Cancel color="#880000" />
                 </button>
               </div>

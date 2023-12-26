@@ -70,13 +70,22 @@
   background-color: #444444;
 
   .price {
-    transform: translateX(-20px);
+    transform: translateX(-10px);
+  }
+
+  .delete-btn {
+    opacity: 1;
   }
 }
 
 .price {
-  transition: transform 350ms ease;
-  transform: translateX(0px);
+  transition: transform 350ms;
+  transform: translateX(46px);
+}
+
+.delete-btn {
+  transition: opacity 250ms;
+  opacity: 0;
 }
 
 .input-base {
