@@ -6,12 +6,14 @@ import { expensesType } from "../App";
 type OptionProps = {
   month: string;
   year: string;
-  data: expensesType
+  data: expensesType;
   setData: React.Dispatch<React.SetStateAction<expensesType>>;
+  setYear: React.Dispatch<React.SetStateAction<string>>;
+  setMonth: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Options = (props: OptionProps) => {
-  const { year, month, setData, data } = props;
+  const { year, month, setData, data, setYear, setMonth } = props;
 
   const [isIncome, setIsIncome] = useState(true);
   const [description, setDescription] = useState("");
@@ -56,7 +58,7 @@ const Options = (props: OptionProps) => {
 
   return (
     <form className="options">
-      <Popover data={data}/>
+      <Popover data={data} setYear={setYear} setMonth={setMonth} />
 
       <select id="money" onChange={(e) => setIsIncome(e.target.value === "income" ? true : false)}>
         <option value="income">➕</option>
