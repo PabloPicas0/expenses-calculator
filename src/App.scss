@@ -56,10 +56,27 @@
   margin: 0 auto;
 }
 
+.spendings-subtitle {
+  margin-bottom: 0px;
+}
+
 .spending-details {
   display: flex;
   justify-content: space-between;
   padding: 0px 20px;
+}
+
+.spending-details:hover {
+  background-color: #444444;
+
+  .price {
+    transform: translateX(-20px);
+  }
+}
+
+.price {
+  transition: transform 350ms ease;
+  transform: translateX(0px);
 }
 
 .input-base {
