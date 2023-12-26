@@ -6,10 +6,12 @@ import { expensesType } from "../App";
 type PopoverHistoryProps = {
   yearKey: string;
   data: expensesType;
+  setYear: React.Dispatch<React.SetStateAction<string>>;
+  setMonth: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const PopoverHistory = (props: PopoverHistoryProps) => {
-  const { yearKey, data } = props;
+  const { yearKey, data, setYear, setMonth } = props;
 
   const [IsChildrenVisible, setIsChildrenVisible] = useState(false);
 
@@ -17,7 +19,10 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
     <div>
       <button
         type="button"
-        onClick={() => setIsChildrenVisible((prev) => !prev)}
+        onClick={() => {
+          setIsChildrenVisible((prev) => !prev);
+          setYear(yearKey);
+        }}
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -35,6 +40,7 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
         {data[yearKey].map((e) => {
           return (
             <div
+              onClick={() => setMonth(e.month)}
               key={e.month.charCodeAt(0) * Math.random()}
               style={{ backgroundColor: "black", padding: "0 0 0 15px" }}>
               {e.month}
