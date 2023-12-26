@@ -45,7 +45,14 @@ function App() {
   return (
     <>
       <Title year={year} month={month} data={data} />
-      <Options year={year} month={month} setData={setData} data={data} setYear={setYear} setMonth={setMonth}/>
+      <Options
+        year={year}
+        month={month}
+        setData={setData}
+        data={data}
+        setYear={setYear}
+        setMonth={setMonth}
+      />
       <Spendings year={year} month={month} data={data} />
     </>
   );
