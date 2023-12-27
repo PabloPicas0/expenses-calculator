@@ -1,6 +1,12 @@
-import { PropsTypes } from "./Spendings";
+import { expensesType } from "../App";
 
-const Title = (props: PropsTypes) => {
+type TitlePropsTypes = {
+  data: expensesType;
+  month: string;
+  year: string;
+};
+
+const Title = (props: TitlePropsTypes) => {
   const { data, month, year } = props;
 
   const currentDate = new Date(`${year}-${month}-01`).toLocaleDateString("en-GB", {
@@ -16,7 +22,19 @@ const Title = (props: PropsTypes) => {
     <header className="header">
       <h1>
         Budget available in {currentDate}
-        <br />$ {totalIncome - totalSpendings}
+        <br />
+        <span
+          style={{
+            color:
+              totalIncome - totalSpendings > 0
+                ? "green"
+                : totalIncome - totalSpendings < 0
+                ? "red"
+                : "rgba(255, 255, 255, 0.87)",
+          }}>
+          {" "}
+          $ {totalIncome - totalSpendings}{" "}
+        </span>
       </h1>
 
       <div style={{ maxWidth: "420px", margin: "10px auto 0px auto" }}>
