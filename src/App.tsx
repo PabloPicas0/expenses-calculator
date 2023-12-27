@@ -41,7 +41,6 @@ function App() {
   const [year, setYear] = useState(`${new Date().getFullYear()}`);
   const [month, setMonth] = useState(new Date().toLocaleDateString("en-US", { month: "short" }));
 
-  console.log(data);
   return (
     <>
       <Title year={year} month={month} data={data} />
@@ -53,7 +52,7 @@ function App() {
         setYear={setYear}
         setMonth={setMonth}
       />
-      <Spendings year={year} month={month} data={data} />
+      <Spendings year={year} month={month} data={data} setData={setData} />
     </>
   );
 }
