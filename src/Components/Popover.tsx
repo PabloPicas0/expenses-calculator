@@ -37,7 +37,8 @@ const Popover = (props: PopoverProps) => {
         onClick={() => setIsParentVisible((prev) => !prev)}
         type="button"
         className="history-btn"
-        ref={poperRef}>
+        ref={poperRef}
+        style={{ zIndex: isParentVisible ? 1337 : "initial" }}>
         History
         <Arrow />
       </button>
@@ -47,10 +48,11 @@ const Popover = (props: PopoverProps) => {
         style={{
           position: "fixed",
           display: isParentVisible ? "block" : "none",
-          height: "312px",
+          maxHeight: "312px",
           borderRadius: "5px",
           overflowY: "auto",
           scrollbarGutter: "stable",
+          zIndex: isParentVisible ? 1337 : "initial",
         }}>
         {yearsKeys.map((yearKey) => {
           return (
@@ -64,6 +66,12 @@ const Popover = (props: PopoverProps) => {
           );
         })}
       </div>
+
+      {isParentVisible ? (
+        <div
+          onClick={() => setIsParentVisible(false)}
+          style={{ position: "fixed", inset: 0, zIndex: 100 }}></div>
+      ) : null}
     </>
   );
 };
