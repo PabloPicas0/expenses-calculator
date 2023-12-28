@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Popover from "./Popover";
-import { expensesType } from "../App";
+import { expensesType } from "../../App";
 
 type OptionProps = {
   month: string;

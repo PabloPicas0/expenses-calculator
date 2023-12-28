@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import PopoverHistory from "./PopoverHistory";
-import { expensesType } from "../App";
-import Arrow from "../assets/Arrow";
+import { expensesType } from "../../App";
+import Arrow from "../../assets/Arrow";
 
 type PopoverProps = {
   data: expensesType;

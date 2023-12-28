@@ -1,6 +1,6 @@
-import { expensesType } from "../App";
-import { formatCurrency } from "../utils";
-import Cancel from "../assets/Cancel";
+import { expensesType } from "../../App";
+import { formatCurrency } from "../../utils";
+import Cancel from "../../assets/Cancel";
 
 type SpendingsPropsTypes = {
   year: string;
