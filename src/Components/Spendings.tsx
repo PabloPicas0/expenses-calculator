@@ -1,5 +1,5 @@
 import { expensesType } from "../App";
-import Cancel from "./Cancel";
+import Cancel from "../assets/Cancel";
 
 type SpendingsPropsTypes = {
   year: string;
@@ -19,7 +19,7 @@ const Spendings = (props: SpendingsPropsTypes) => {
     .split(" ");
 
   const isDisabled = month !== currentMonth || year !== currentYear;
-  
+
   const handleDelte = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const [_, transactionType, index] = e.currentTarget.id.split("-") as DeleteBtnIdTypes;
 
