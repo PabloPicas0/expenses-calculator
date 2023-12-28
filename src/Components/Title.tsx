@@ -9,7 +9,7 @@ type TitlePropsTypes = {
 const Title = (props: TitlePropsTypes) => {
   const { data, month, year } = props;
 
-  const currentDate = new Date(`${year}-${month}-01`).toLocaleDateString("en-GB", {
+  const selectedDate = new Date(`${year}-${month}-01`).toLocaleDateString("en-GB", {
     month: "long",
     year: "numeric",
   });
@@ -21,7 +21,7 @@ const Title = (props: TitlePropsTypes) => {
   return (
     <header className="header">
       <h1>
-        Budget available in {currentDate}
+        Budget available in {selectedDate}
         <br />
         <span
           style={{
