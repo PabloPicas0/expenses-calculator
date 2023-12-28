@@ -21,7 +21,6 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
         type="button"
         onClick={() => {
           setIsChildrenVisible((prev) => !prev);
-          setYear(yearKey);
         }}
         style={{
           display: "flex",
@@ -40,7 +39,10 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
         {data[yearKey].map((e) => {
           return (
             <div
-              onClick={() => setMonth(e.month)}
+              onClick={() => {
+                setYear(yearKey);
+                setMonth(e.month);
+              }}
               key={e.month.charCodeAt(0) * Math.random()}
               style={{ backgroundColor: "black", padding: "0 0 0 15px" }}>
               {e.month}
