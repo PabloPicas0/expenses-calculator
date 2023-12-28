@@ -1,4 +1,5 @@
 import { expensesType } from "../App";
+import { formatCurrency, sum } from "../utils";
 
 type TitlePropsTypes = {
   data: expensesType;
@@ -15,8 +16,12 @@ const Title = (props: TitlePropsTypes) => {
   });
 
   const selectedData = data[year].filter((e) => e.month === month)[0];
-  const totalIncome = selectedData.income.reduce((acc, data) => acc + data.income, 0);
-  const totalSpendings = selectedData.spendings.reduce((acc, data) => acc + data.income, 0);
+  const totalIncome = sum(selectedData.income);
+  const totalSpendings = sum(selectedData.spendings);
+
+  const totalBalance = formatCurrency(totalIncome - totalSpendings);
+  const currentIncome = formatCurrency(totalIncome);
+  const currentSpendings = formatCurrency(totalSpendings);
 
   return (
     <header className="header">
@@ -33,19 +38,19 @@ const Title = (props: TitlePropsTypes) => {
                 : "rgba(255, 255, 255, 0.87)",
           }}>
           {" "}
-          $ {totalIncome - totalSpendings}{" "}
+          {totalBalance}{" "}
         </span>
       </h1>
 
       <div style={{ maxWidth: "420px", margin: "10px auto 0px auto" }}>
         <div className="header-income-wrapper spending-details">
           <p>Income</p>
-          <p>+ ${totalIncome}</p>
+          <p>+ {currentIncome}</p>
         </div>
 
         <div className="header-expenses-wrapper spending-details">
           <p>Expenses</p>
-          <p>- ${totalSpendings}</p>
+          <p>- {currentSpendings}</p>
         </div>
       </div>
     </header>

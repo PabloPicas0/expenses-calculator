@@ -1,4 +1,5 @@
 import { expensesType } from "../App";
+import { formatCurrency } from "../utils";
 import Cancel from "../assets/Cancel";
 
 type SpendingsPropsTypes = {
@@ -47,13 +48,14 @@ const Spendings = (props: SpendingsPropsTypes) => {
         <h2 className="center-text border-bottom padding-bottom color-green spendings-subtitle">Income</h2>
         {currentExpenses?.income.map((currentIncome, index) => {
           const { descritpiton, income } = currentIncome;
+          const fixedIncome = formatCurrency(income);
 
           return (
             <div key={income * Math.random()} id="earned" className="spending-details border-bottom">
               <p>{descritpiton}</p>
 
               <div style={{ display: "flex", alignItems: "center" }}>
-                <p className="color-green price">+ ${income}</p>
+                <p className="color-green price">+ {fixedIncome}</p>
                 <button
                   id={`delte-income-${index}`}
                   className="icon-button delete-btn"
@@ -71,13 +73,14 @@ const Spendings = (props: SpendingsPropsTypes) => {
         <h2 className="center-text border-bottom padding-bottom color-red spendings-subtitle">Spendings</h2>
         {currentExpenses?.spendings.map((currentSpending, index) => {
           const { descritpiton, income } = currentSpending;
+          const fixedIncome = formatCurrency(income);
 
           return (
             <div key={income * Math.random()} id="spended" className="spending-details border-bottom">
               <p>{descritpiton}</p>
 
               <div style={{ display: "flex", alignItems: "center" }}>
-                <p className="color-red price">- ${income}</p>
+                <p className="color-red price">- {fixedIncome}</p>
                 <button
                   id={`delete-spendings-${index}`}
                   className="icon-button delete-btn"
