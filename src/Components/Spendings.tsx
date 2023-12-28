@@ -14,9 +14,12 @@ const Spendings = (props: SpendingsPropsTypes) => {
   const { data, month, year, setData } = props;
 
   const currentExpenses = data[year].find((e) => e.month === month);
-  console.log(currentExpenses);
+  const [currentMonth, currentYear] = new Date()
+    .toLocaleDateString("en-GB", { month: "short", year: "numeric" })
+    .split(" ");
 
-  // TODO: If user selects spendings form history prevent him from delete this
+  const isDisabled = month !== currentMonth || year !== currentYear;
+  
   const handleDelte = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const [_, transactionType, index] = e.currentTarget.id.split("-") as DeleteBtnIdTypes;
 
@@ -51,8 +54,12 @@ const Spendings = (props: SpendingsPropsTypes) => {
 
               <div style={{ display: "flex", alignItems: "center" }}>
                 <p className="color-green price">+ ${income}</p>
-                <button id={`delte-income-${index}`} className="icon-button delete-btn" onClick={handleDelte}>
-                  <Cancel color="#008800" />
+                <button
+                  id={`delte-income-${index}`}
+                  className="icon-button delete-btn"
+                  onClick={handleDelte}
+                  disabled={isDisabled}>
+                  <Cancel color={isDisabled ? "grey" : "#008800"} />
                 </button>
               </div>
             </div>
@@ -74,8 +81,9 @@ const Spendings = (props: SpendingsPropsTypes) => {
                 <button
                   id={`delete-spendings-${index}`}
                   className="icon-button delete-btn"
-                  onClick={handleDelte}>
-                  <Cancel color="#880000" />
+                  onClick={handleDelte}
+                  disabled={isDisabled}>
+                  <Cancel color={isDisabled ? "grey" : "#880000"} />
                 </button>
               </div>
             </div>
