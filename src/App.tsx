@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.scss";
 
-import Options from "./Components/Options";
-import Spendings from "./Components/Spendings";
-import Title from "./Components/Title";
+import Options from "./Components/Options/Options";
+import Spendings from "./Components/budged-list/Spendings";
+import Title from "./Components/Header/Title";
 
 export type expensesType = {
   [year: number | string]:
