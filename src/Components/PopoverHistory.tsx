@@ -44,7 +44,12 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
                 setMonth(e.month);
               }}
               key={e.month.charCodeAt(0) * Math.random()}
-              style={{ backgroundColor: "black", padding: "0 0 0 15px" }}>
+              style={{
+                backgroundColor: "black",
+                padding: "0 0 0 15px",
+                cursor: "pointer",
+                userSelect: "none",
+              }}>
               {e.month}
             </div>
           );
