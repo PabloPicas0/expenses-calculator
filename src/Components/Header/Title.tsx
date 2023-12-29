@@ -1,5 +1,5 @@
 import { expensesType } from "../../App";
-import { formatCurrency, sum } from "../../utils";
+import { formatCurrency, sum } from "../../utils/utils";
 
 type TitlePropsTypes = {
   data: expensesType;

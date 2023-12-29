@@ -1,5 +1,5 @@
 import { expensesType } from "../../App";
-import { formatCurrency } from "../../utils";
+import { formatCurrency } from "../../utils/utils";
 import Cancel from "../../assets/Cancel";
 
 type SpendingsPropsTypes = {
