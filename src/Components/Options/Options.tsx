@@ -60,12 +60,16 @@ const Options = (props: OptionProps) => {
     <form className="options">
       <Popover data={data} setYear={setYear} setMonth={setMonth} />
 
-      <select id="money" onChange={(e) => setIsIncome(e.target.value === "income" ? true : false)}>
+      <select
+        data-testid="inputs"
+        id="money"
+        onChange={(e) => setIsIncome(e.target.value === "income" ? true : false)}>
         <option value="income">➕</option>
         <option value="expense">➖</option>
       </select>
 
       <input
+        data-testid="inputs"
         type="text"
         placeholder="Description"
         className="input-base"
@@ -73,6 +77,7 @@ const Options = (props: OptionProps) => {
         onChange={(e) => setDescription(e.target.value)}
       />
       <input
+        data-testid="inputs"
         type="number"
         placeholder="Ammount"
         min={0}
@@ -82,6 +87,7 @@ const Options = (props: OptionProps) => {
       />
 
       <button
+        data-testid="inputs"
         type="button"
         className="icon-button"
         aria-label="submit"
