@@ -31,7 +31,7 @@ const PopoverHistory = (props: PopoverHistoryProps) => {
           width: "100%",
           borderRadius: 0,
         }}>
-        <span style={{ pointerEvents: "none" }}>{yearKey}</span>
+        <span>{yearKey}</span>
         <Arrow />
       </button>
 
