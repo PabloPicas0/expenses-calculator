@@ -57,6 +57,7 @@ const Spendings = (props: SpendingsPropsTypes) => {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <p className="color-green price">+ {fixedIncome}</p>
                 <button
+                  data-testid="delete"
                   id={`delte-income-${index}`}
                   className="icon-button delete-btn"
                   onClick={handleDelte}
@@ -82,6 +83,7 @@ const Spendings = (props: SpendingsPropsTypes) => {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <p className="color-red price">- {fixedIncome}</p>
                 <button
+                  data-testid="delete"
                   id={`delete-spendings-${index}`}
                   className="icon-button delete-btn"
                   onClick={handleDelte}
