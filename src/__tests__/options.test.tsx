@@ -131,6 +131,10 @@ describe("Options component", () => {
     const setMonth = vi.fn();
     const setData = vi.fn();
 
+    const [currentMonth, currentYear] = new Date()
+      .toLocaleDateString("en-GB", { month: "short", year: "numeric" })
+      .split(" ");
+
     render(
       <Options
         data={{
@@ -163,8 +167,8 @@ describe("Options component", () => {
         setData={setData}
         setMonth={setMonth}
         setYear={setYear}
-        year="2023"
-        month="Dec"
+        year={currentYear}
+        month={currentMonth}
       />
     );
 
