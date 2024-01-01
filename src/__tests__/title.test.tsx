@@ -4,8 +4,6 @@ import { render, screen } from "@testing-library/react";
 
 describe("Title component", () => {
   test("it shows correct currency format", () => {
-    const setData = vi.fn();
-
     render(
       <Title
         data={{
@@ -32,7 +30,7 @@ describe("Title component", () => {
       />
     );
 
-    screen.debug() 
+    screen.debug();
 
     expect(screen.getByText("+ $6,000.00")).toBeInTheDocument();
     expect(screen.getByText("- $1,345.00")).toBeInTheDocument();
