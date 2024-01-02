@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import PopoverHistory from "./PopoverHistory";
 import { expensesType } from "../../App";
 import Arrow from "../../assets/Arrow";
@@ -14,30 +14,33 @@ const Popover = (props: PopoverProps) => {
 
   const [isParentVisible, setIsParentVisible] = useState(false);
 
-  const poperRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const yearsKeys = Object.keys(data);
 
-  useEffect(() => {
-    if (!poperRef.current || !contentRef.current) return;
+  const handlePostion = () => {
+    if (!buttonRef.current || !contentRef.current) return;
 
-    const boundingClientRect = poperRef.current.getBoundingClientRect();
+    const boundingClientRect = buttonRef.current.getBoundingClientRect();
 
     const { bottom, left, width } = boundingClientRect;
 
     contentRef.current.style.top = `${bottom + 5}px`;
     contentRef.current.style.left = `${left}px`;
     contentRef.current.style.width = `${width}px`;
-  }, [poperRef, contentRef]);
+  };
 
   return (
     <>
       <button
-        onClick={() => setIsParentVisible((prev) => !prev)}
+        onClick={() => {
+          handlePostion();
+          setIsParentVisible((prev) => !prev);
+        }}
         type="button"
         className="history-btn"
-        ref={poperRef}
+        ref={buttonRef}
         style={{ zIndex: isParentVisible ? 1337 : "initial" }}>
         History
         <Arrow />
