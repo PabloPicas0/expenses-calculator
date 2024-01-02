@@ -1,4 +1,4 @@
-import { describe, expect, test, vi } from "vitest";
+import { describe, expect, test } from "vitest";
 import Title from "../Components/Header/Title";
 import { render, screen } from "@testing-library/react";
 
