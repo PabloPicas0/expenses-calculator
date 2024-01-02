@@ -42,7 +42,7 @@ const Title = (props: TitlePropsTypes) => {
         </span>
       </h1>
 
-      <div style={{ maxWidth: "420px", margin: "10px auto 0px auto" }}>
+      <div style={{ maxWidth: "420px", margin: "10px auto 0px auto", padding: "0px 5px" }}>
         <div className="header-income-wrapper spending-details">
           <p>Income</p>
           <p>+ {currentIncome}</p>

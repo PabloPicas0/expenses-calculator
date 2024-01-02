@@ -69,6 +69,7 @@ const Options = (props: OptionProps) => {
       </select>
 
       <input
+        style={{ maxWidth: "130px" }}
         data-testid="inputs"
         type="text"
         placeholder="Description"
@@ -77,6 +78,7 @@ const Options = (props: OptionProps) => {
         onChange={(e) => setDescription(e.target.value)}
       />
       <input
+        style={{ maxWidth: "120px" }}
         data-testid="inputs"
         type="number"
         placeholder="Ammount"
