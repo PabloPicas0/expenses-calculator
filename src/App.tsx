@@ -22,12 +22,13 @@ export type expensesType = {
 };
 
 const storage = localStorage.getItem("expensesData");
+const currentYear = new Date().getFullYear();
 
 const expensesData: expensesType =
   storage !== null
     ? JSON.parse(storage)
     : {
-        [new Date().getFullYear()]: [
+        [currentYear]: [
           {
             month: new Date().toLocaleDateString("en-GB", { month: "short" }),
             income: [],
@@ -38,8 +39,8 @@ const expensesData: expensesType =
 
 // Check if current year exists in storage
 // If not append current year
-if (!expensesData[new Date().getFullYear()]) {
-  expensesData[new Date().getFullYear()] = [
+if (!expensesData[currentYear]) {
+  expensesData[currentYear] = [
     {
       month: new Date().toLocaleDateString("en-GB", { month: "short" }),
       income: [],
