@@ -36,6 +36,18 @@ const expensesData: expensesType =
         ],
       };
 
+// Check if current year exists in storage
+// If not append current year
+if (!expensesData[new Date().getFullYear()]) {
+  expensesData[new Date().getFullYear()] = [
+    {
+      month: new Date().toLocaleDateString("en-GB", { month: "short" }),
+      income: [],
+      spendings: [],
+    },
+  ];
+}
+
 function App() {
   const [data, setData] = useState(expensesData);
   const [year, setYear] = useState(`${new Date().getFullYear()}`);
