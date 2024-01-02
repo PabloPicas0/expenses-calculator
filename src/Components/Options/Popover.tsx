@@ -62,6 +62,7 @@ const Popover = (props: PopoverProps) => {
             <PopoverHistory
               key={yearKey}
               yearKey={yearKey}
+              isParentVisible={isParentVisible}
               data={data}
               setYear={setYear}
               setMonth={setMonth}

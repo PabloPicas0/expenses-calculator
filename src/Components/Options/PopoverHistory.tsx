@@ -6,14 +6,19 @@ import { expensesType } from "../../App";
 type PopoverHistoryProps = {
   yearKey: string;
   data: expensesType;
+  isParentVisible: boolean;
   setYear: React.Dispatch<React.SetStateAction<string>>;
   setMonth: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const PopoverHistory = (props: PopoverHistoryProps) => {
-  const { yearKey, data, setYear, setMonth } = props;
+  const { yearKey, data, isParentVisible, setYear, setMonth } = props;
 
   const [IsChildrenVisible, setIsChildrenVisible] = useState(false);
+
+  if (!isParentVisible && IsChildrenVisible) {
+    setIsChildrenVisible(false);
+  }
 
   return (
     <div>
