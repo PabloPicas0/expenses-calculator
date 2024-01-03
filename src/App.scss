@@ -13,12 +13,12 @@
   border-radius: 5px;
   font-weight: 700;
   font-size: 1rem;
-  border: 1px solid #808080;
+  border: 1px solid var(--grey-50);
 }
 
 #money:focus-visible {
   outline: none;
-  border: 1px solid green;
+  border: 1px solid var(--main-green);
 }
 
 .header {
@@ -28,14 +28,14 @@
 
 .header-income-wrapper {
   margin-bottom: 20px;
-  background-color: rgba(0, 128, 0, 0.8) !important;
+  background-color: var(--main-green) !important;
   font-weight: 550;
   border-radius: 10px;
 }
 
 .header-expenses-wrapper {
   font-weight: 550;
-  background-color: rgba(255, 0, 0, 0.5) !important;
+  background-color: var(--main-red) !important;
   border-radius: 10px;
 }
 
@@ -44,7 +44,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  background-color: #393939;
+  background-color: var(--grey-200);
   padding: 25px;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .spending-details:hover {
-  background-color: #444444;
+  background-color: var(--grey-100);
 
   .price {
     transform: translateX(-10px);
@@ -98,7 +98,7 @@
 
 .input-base:focus-visible {
   outline: none;
-  border-color: green;
+  border-color: var(--main-green);
 }
 
 .icon-button {
@@ -122,7 +122,7 @@
 }
 
 .border-bottom {
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 1px solid var(--main-white);
 }
 
 .center-text {
@@ -134,11 +134,11 @@
 }
 
 .color-green {
-  color: #008000;
+  color: var(--main-green);
 }
 
 .color-red {
-  color: red;
+  color: var(--main-red);
 }
 
 @media (max-width: 870px) {
