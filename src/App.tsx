@@ -17,12 +17,12 @@ export type expensesType = {
           descritpiton: string;
           income: number;
         }[];
-      }[]
-    | [];
+      }[];
 };
 
 const storage = localStorage.getItem("expensesData");
 const currentYear = new Date().getFullYear();
+const currentMonth = new Date().toLocaleDateString("en-GB", { month: "short" });
 
 const expensesData: expensesType =
   storage !== null
@@ -30,7 +30,7 @@ const expensesData: expensesType =
     : {
         [currentYear]: [
           {
-            month: new Date().toLocaleDateString("en-GB", { month: "short" }),
+            month: currentMonth,
             income: [],
             spendings: [],
           },
@@ -42,11 +42,23 @@ const expensesData: expensesType =
 if (!expensesData[currentYear]) {
   expensesData[currentYear] = [
     {
-      month: new Date().toLocaleDateString("en-GB", { month: "short" }),
+      month: currentMonth,
       income: [],
       spendings: [],
     },
   ];
+}
+
+
+// Append new month if he don't exists  
+const isNewMonth = expensesData[currentYear].some((e) => e.month === currentMonth);
+
+if (!isNewMonth) {
+  expensesData[currentYear].push({
+    month: currentMonth,
+    income: [],
+    spendings: [],
+  });
 }
 
 function App() {
